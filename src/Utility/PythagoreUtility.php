@@ -2,11 +2,11 @@
 
 namespace App\Utility;
 
-class PythagoreUtility
+final class PythagoreUtility
 {
     public function display(): string
     {
-        $value = '<table class="table table-light table-striped-columns mt-5">';
+        $value = '<table>';
 
         for ($i = 0; $i <= 10; $i++) {
 

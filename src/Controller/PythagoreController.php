@@ -9,20 +9,18 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PythagoreController extends AbstractController
 {
-    private PythagoreUtility $pythagoreUtility;
+    private PythagoreUtility $pythagore;
 
     public function __construct(PythagoreUtility $pythagoreUtility){
-        $this->pythagoreUtility = $pythagoreUtility;
+        $this->pythagore = $pythagoreUtility;
     }
 
 
     #[Route('/pythagore/view', name: 'pythagore_view')]
     public function displayPythagoreAction(): Response
     {
-        $tableHtml = $this->pythagoreUtility->display();
-
         return $this->render('displayPythagore.html.twig', [
-            'table_html' => $tableHtml,
+            'table_html' => $this->pythagore->display(),
             'my_name' => 'MONEL GAFFAN',
         ]);
     }
